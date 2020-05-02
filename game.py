@@ -41,7 +41,7 @@ before all three rolls have occurred, they must hold all five dice.
 
 
 def print_category_codes():
-    print("The following table lists each score category followed by the key to enter to enter a score for that category:")
+    print("The following table lists each score category followed by the key to enter a score for that category:")
     print("""
 ones -> ones
 twos -> twos
@@ -59,6 +59,7 @@ Chance -> ch
 Yahtzee bonus -> yb
 
 Enter "scoreboard" at any time after the game starts to look at the player's score
+Enter "keys" at any time after the game starts to look at the category keys
 """)
 
 
@@ -133,6 +134,10 @@ while current_round_number <= MAX_ROUNDS:
                     player.print_scorecard()
                     continue
 
+                if held_dice_str == "keys":
+                    print_category_codes()
+                    continue
+
                 valid_hold = player_dice.are_held_dice_valid(held_dice_str)
                 if valid_hold:
                     held_dice = held_dice_str.split()
@@ -155,6 +160,10 @@ while current_round_number <= MAX_ROUNDS:
 
         if chosen_category == "scoreboard":
             player.print_scorecard()
+            continue
+
+        if chosen_category == "keys":
+            print_category_codes()
             continue
 
         valid_category = player.is_category_valid(chosen_category, player_dice)

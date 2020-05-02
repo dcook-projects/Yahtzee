@@ -138,11 +138,3 @@ class Dice:
                 total += value
 
         return total
-
-
-# de1 = Dice()
-# de2 = Dice()
-# de1.player_dice = [2, 1, 5, 3, 6]
-# de2.player_dice = [6, 2, 3, 4, 5]
-# print(de1.is_valid_small_straight())
-# print(de2.is_valid_small_straight())
